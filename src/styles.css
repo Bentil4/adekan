@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+:root {
+  --neutral: #f2f2f2;
+  --yellow: #ff9f00;
+  --purple: #d3a0fa;
+  --neutral-black: #12131a;
+  --neutral-mid: #2a2b37;
+  --orange: #fe8159;
+  --neutral-light: #e4e4ef;
+  --background: url(./assets/images/bg-dark-theme.png);
+  --text: #12131a;
+  --light-text: #e4e4ef;
+  --text-area-color: var(--neutral);
+  --text-area-bg: var(--neutral-mid);
+  --border-color: var(--orange);
+  --input-color: var(--neutral-light);
+  --progress-bar-color: #21222c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans","Times New Roman", sans-serif;
+  padding: 40px 20px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+  background: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--light-text);
+}
+
+body.light-theme {
+  --background: url(./assets/images/bg-light-theme.png);
+  --text: #12131a;
+  --neutral-mid: var(--neutral);
+  --text-area-color: var(--neutral-black);
+  --input-color: var(--neutral-black);
+  --progress-bar-color: #f2f2f7;
+  --text-area-bg: var(--neutral);
+  background: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text);
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+button,
+input,
+textarea {
+  transition: all 0.2s ease;
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-mid);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c48fe8;
+}
