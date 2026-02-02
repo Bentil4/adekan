@@ -1,0 +1,37 @@
+<app-header (themeToggle)="onThemeToggle()"></app-header>
+
+<main class="container">
+  <h1 class="title">Analyze your text <span>in real-time.</span></h1>
+
+  <app-text-input
+    [text]="textContent"
+    [characterLimit]="characterLimit"
+    [isLimitEnabled]="isLimitEnabled"
+    (textChange)="onTextChange($event)"
+    (limitExceeded)="onLimitExceeded()"
+  >
+  </app-text-input>
+
+  <app-controls
+    [excludeSpaces]="excludeSpaces"
+    [isLimitEnabled]="isLimitEnabled"
+    [characterLimit]="characterLimit"
+    [readingTime]="readingTime"
+    (excludeSpacesChange)="onExcludeSpacesChange($event)"
+    (limitToggle)="onLimitToggle($event)"
+    (limitChange)="onLimitChange($event)"
+  >
+  </app-controls>
+
+  <app-stats-cards
+    [characterCount]="characterCount"
+    [wordCount]="wordCount"
+    [sentenceCount]="sentenceCount"
+  >
+  </app-stats-cards>
+
+  <app-letter-density [letterDensityData]="letterDensityData" [hasText]="textContent.length > 0">
+  </app-letter-density>
+</main>
+
+<app-limit-popup [show]="showLimitPopup" (close)="onClosePopup()"> </app-limit-popup>

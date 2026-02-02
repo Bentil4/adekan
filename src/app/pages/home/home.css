@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  width: 70%;
+  margin: 60px auto 0;
+}
+
+.title {
+  align-self: center;
+  font-size: 4em;
+}
+
+.title span {
+  display: block;
+}
+
+/* Media Queries */
+
+/* Mobile View */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2em;
+    width: 90%;
+  }
+}
+
+/* Tablet view */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 4em;
+    width: 70%;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+  .title {
+    font-size: 4em;
+    width: 80%;
+  }
+}
