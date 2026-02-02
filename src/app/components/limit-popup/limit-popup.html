@@ -1,0 +1,19 @@
+<div 
+  class="limit-popup-overlay" 
+  [style.display]="displayStyle"
+  (click)="onOverlayClick($event)"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="popup-message">
+  <div class="limit-popup-box">
+    <p id="popup-message">You have reached the character limit!</p>
+    <button 
+      id="close-popup-btn"
+      (click)="onClose()"
+      (keydown.enter)="onClose()"
+      (keydown.space)="onClose()"
+      aria-label="Close popup">
+      OK
+    </button>
+  </div>
+</div>

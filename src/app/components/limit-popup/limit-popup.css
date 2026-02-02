@@ -1,0 +1,68 @@
+.limit-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-in-out;
+  z-index: 2000;
+}
+
+.limit-popup-box {
+  background: var(--neutral-black);
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--neutral);
+  width: 300px;
+  animation: scaleIn 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.limit-popup-box p {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.limit-popup-box button {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: var(--purple);
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.limit-popup-box button:hover {
+  background: #c48fe8;
+  transform: scale(1.05);
+}
+
+.limit-popup-box button:focus {
+  outline: 2px solid var(--neutral);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
