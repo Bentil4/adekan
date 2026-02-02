@@ -1,0 +1,22 @@
+<header>
+  <span>
+    <img
+      class="logo"
+      [src]="logoSrc"
+      alt="logo"
+    />
+<section class="theme">
+      <img
+      class="theme-icon"
+      [src]="themeIcon"
+      alt="theme-toggle"
+      (click)="onThemeToggle()"
+      (keydown.enter)="onThemeToggle()"
+      (keydown.space)="onThemeToggle()"
+      tabindex="0"
+      role="button"
+      aria-label="Toggle theme"
+    />
+</section>
+  </span>
+</header>

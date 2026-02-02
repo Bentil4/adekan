@@ -1,0 +1,44 @@
+header span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.theme {
+  background-color: var(--neutral-light);
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.theme:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+  header span {
+    width: 100%;
+  }
+
+  .logo {
+    height: 30px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+  header span {
+    width: 100%;
+  }
+}
