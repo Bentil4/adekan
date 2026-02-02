@@ -1,0 +1,123 @@
+.wrapper-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: nowrap;
+  color: var(--text);
+}
+
+
+.wrapper-cards p {
+  white-space: nowrap;
+}
+.card {
+  background: var(--text);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card section {
+  z-index: 1;
+  position: relative;
+  padding: 20px;
+  text-align: left;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 3em;
+}
+
+.card.purple {
+  background-color: var(--purple);
+}
+
+.card.purple::before {
+  content: '';
+  background-image: url(./../../../assets/images/pattern-character-count.svg);
+  width: 150px;
+  height: 150px;
+  border-radius: 17px;
+}
+
+.card.yellow {
+  background-color: var(--yellow);
+}
+
+.card.yellow::before {
+  content: '';
+  background-image: url(./../../../assets/images/pattern-word-count.svg);
+  width: 150px;
+  height: 150px;
+  border-radius: 17px;
+}
+
+.card.orange {
+  background-color: var(--orange);
+}
+
+.card.orange::before {
+  content: '';
+  background-image: url(./../../../assets/images/pattern-sentence-count.svg);
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+  .wrapper-cards {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Tablet view */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .wrapper-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+  .wrapper-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 0;
+  }
+}
