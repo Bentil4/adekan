@@ -1,0 +1,14 @@
+<section class="textarea-box" [class.limit-exceeded]="isLimitExceeded">
+  <textarea
+    class="textarea"
+    [(ngModel)]="currentText"
+    (input)="onTextInput($event)"
+    placeholder="Start typing here… (or paste your text)"
+    aria-label="Text input for analysis"
+  ></textarea>
+  @if (showWarning) {
+    <p class="max">
+        Limit reached! Your text exceeds {{ characterLimit }} characters.
+    </p>
+  }
+</section>
