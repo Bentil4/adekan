@@ -9,7 +9,7 @@
   --neutral-mid: #2a2b37;
   --orange: #fe8159;
   --neutral-light: #e4e4ef;
-  --background: url(./assets/images/bg-dark-theme.png);
+  --background: url(/assets/images/bg-dark-theme.png);
   --text: #12131a;
   --light-text: #e4e4ef;
   --text-area-color: var(--neutral);
@@ -41,7 +41,7 @@ body.dark-theme {
 }
 
 body.light-theme {
-  --background: url(./assets/images/bg-light-theme.png);
+  --background: url(/assets/images/bg-light-theme.png);
   --text: #12131a;
   --neutral-mid: var(--neutral);
   --text-area-color: var(--neutral-black);

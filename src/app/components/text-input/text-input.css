@@ -55,7 +55,7 @@
 }
 
 .max::before {
-  content: url("./../../../assets/images/icon-info.svg");
+  content: url("/assets/images/icon-info.svg");
   padding-right: 10px;
 }
 

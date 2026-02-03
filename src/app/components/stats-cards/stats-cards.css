@@ -50,7 +50,7 @@
 
 .card.purple::before {
   content: '';
-  background-image: url(./../../../assets/images/pattern-character-count.svg);
+  background-image: url('/assets/images/pattern-character-count.svg');
   width: 150px;
   height: 150px;
   border-radius: 17px;
@@ -62,7 +62,7 @@
 
 .card.yellow::before {
   content: '';
-  background-image: url(./../../../assets/images/pattern-word-count.svg);
+  background-image: url('/assets/images/pattern-word-count.svg');
   width: 150px;
   height: 150px;
   border-radius: 17px;
@@ -74,7 +74,7 @@
 
 .card.orange::before {
   content: '';
-  background-image: url(./../../../assets/images/pattern-sentence-count.svg);
+  background-image: url('/assets/images/pattern-sentence-count.svg');
   width: 150px;
   height: 150px;
   border-radius: 20px;
