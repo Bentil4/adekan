@@ -63,7 +63,6 @@ export class TextAnalysisService {
     const letterCounts: { [key: string]: number } = {};
     const chars = [...filteredText];
 
-    // Count each character
     for (const char of chars) {
       const lowerChar = char.toLowerCase();
       letterCounts[lowerChar] = (letterCounts[lowerChar] || 0) + 1;
@@ -72,7 +71,6 @@ export class TextAnalysisService {
     const totalCharacters = filteredText.length;
     const densityData: Array<{ letter: string; count: number; percentage: number }> = [];
 
-    // Convert to array format
     for (const letter in letterCounts) {
       const count = letterCounts[letter];
       const percentage = parseFloat(((count / totalCharacters) * 100).toFixed(2));
@@ -84,7 +82,6 @@ export class TextAnalysisService {
       });
     }
 
-    // Sort by count descending
     return densityData.sort((a, b) => b.count - a.count);
   }
 }

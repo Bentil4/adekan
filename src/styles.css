@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-style: italic;
+}
+
 
 :root {
   --neutral: #f2f2f2;
@@ -26,7 +40,7 @@
 }
 
 body {
-  font-family: "DM Sans","Times New Roman", sans-serif;
+  font-family: "DM Sans", sans-serif;
   padding: 40px 20px;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;

@@ -19,13 +19,12 @@ export class Controls implements OnChanges {
   @Output() limitToggle = new EventEmitter<boolean>();
   @Output() limitChange = new EventEmitter<number>();
 
-  localExcludeSpaces = false;
-  localIsLimitEnabled = false;
-  localCharacterLimit = 300;
-  displayReadingTime = 'Approx. reading time: < 1 minute';
+  public localExcludeSpaces = false;
+  public localIsLimitEnabled = false;
+  public localCharacterLimit = 300;
+  public displayReadingTime = 'Approx. reading time: < 1 minute';
 
-  ngOnChanges(changes: SimpleChanges): void {
-    // Sync local state with inputs
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes['excludeSpaces']) {
       this.localExcludeSpaces = this.excludeSpaces;
     }
@@ -43,17 +42,17 @@ export class Controls implements OnChanges {
     }
   }
 
-  onExcludeSpacesToggle(): void {
+  public onExcludeSpacesToggle(): void {
     this.localExcludeSpaces = !this.localExcludeSpaces;
     this.excludeSpacesChange.emit(this.localExcludeSpaces);
   }
 
-  onLimitToggle(): void {
+  public onLimitToggle(): void {
     this.localIsLimitEnabled = !this.localIsLimitEnabled;
     this.limitToggle.emit(this.localIsLimitEnabled);
   }
 
-  onLimitInput(event: Event): void {
+  public onLimitInput(event: Event): void {
     const input = event.target as HTMLInputElement;
     const value = parseInt(input.value, 10);
 

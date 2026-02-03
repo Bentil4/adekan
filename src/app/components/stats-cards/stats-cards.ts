@@ -13,11 +13,11 @@ export class StatsCards implements OnChanges {
   @Input() wordCount = 0;
   @Input() sentenceCount = 0;
 
-  displayCharacterCount = '00';
-  displayWordCount = '00';
-  displaySentenceCount = '00';
+  public displayCharacterCount = '00';
+  public displayWordCount = '00';
+  public displaySentenceCount = '00';
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     // Update display values with proper padding when inputs change
     if (changes['characterCount']) {
       this.displayCharacterCount = this.formatCount(this.characterCount);

@@ -18,20 +18,20 @@ export class LetterDensity implements OnChanges {
   @Input() letterDensityData: LetterDensityItem[] = [];
   @Input() hasText = false;
 
-  visibleData: LetterDensityItem[] = [];
-  showButton = false;
-  isExpanded = false;
-  buttonText = 'See More';
+  public visibleData: LetterDensityItem[] = [];
+  public showButton = false;
+  public isExpanded = false;
+  public buttonText = 'See More';
   private readonly COLLAPSED_LIMIT = 5;
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     // React to changes in letter density data
     if (changes['letterDensityData'] || changes['hasText']) {
       this.updateVisibleData();
     }
   }
 
-  toggleExpand(): void {
+  public toggleExpand(): void {
     this.isExpanded = !this.isExpanded;
     this.buttonText = this.isExpanded ? 'See Less' : 'See More';
     this.updateVisibleData();

@@ -15,56 +15,54 @@ import { LimitPopup } from "../../components/limit-popup/limit-popup";
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
-  textContent = '';
-  excludeSpaces = false;
-  characterLimit = 300;
-  isLimitEnabled = false;
-  showLimitPopup = false;
+  public textContent = '';
+  public excludeSpaces = false;
+  public characterLimit = 300;
+  public isLimitEnabled = false;
+  public showLimitPopup = false;
 
-  characterCount = 0;
-  wordCount = 0;
-  sentenceCount = 0;
-  readingTime = '< 1 minute';
-  letterDensityData: Array<{ letter: string; count: number; percentage: number }> = [];
+  public characterCount = 0;
+  public wordCount = 0;
+  public sentenceCount = 0;
+  public readingTime = '< 1 minute';
+  public letterDensityData: Array<{ letter: string; count: number; percentage: number }> = [];
 
   private themeService = inject(ThemeService);
   private textAnalysisService = inject(TextAnalysisService);
 
-  ngOnInit(): void {
-    // Initialize theme
+  public ngOnInit(): void {
     this.themeService.initializeTheme();
 
-    // Initialize with empty state
     this.updateAnalysis();
   }
 
-  onTextChange(text: string): void {
+  public onTextChange(text: string): void {
     this.textContent = text;
     this.updateAnalysis();
   }
 
-  onExcludeSpacesChange(exclude: boolean): void {
+  public onExcludeSpacesChange(exclude: boolean): void {
     this.excludeSpaces = exclude;
     this.updateAnalysis();
   }
 
-  onLimitToggle(enabled: boolean): void {
+  public onLimitToggle(enabled: boolean): void {
     this.isLimitEnabled = enabled;
   }
 
-  onLimitChange(limit: number): void {
+  public onLimitChange(limit: number): void {
     this.characterLimit = limit;
   }
 
-  onLimitExceeded(): void {
+  public onLimitExceeded(): void {
     this.showLimitPopup = true;
   }
 
-  onClosePopup(): void {
+  public onClosePopup(): void {
     this.showLimitPopup = false;
   }
 
-  onThemeToggle(): void {
+  public onThemeToggle(): void {
     this.themeService.toggleTheme();
   }
 

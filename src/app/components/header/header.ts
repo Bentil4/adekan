@@ -10,15 +10,15 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./header.css'],
 })
 export class Header implements OnInit, OnDestroy {
-  @Output() themeToggle = new EventEmitter<void>();
+  @Output() public themeToggle = new EventEmitter<void>();
 
-  themeIcon = '/assets/images/icon-sun.svg';
-  logoSrc = '/assets/images/logo-dark-theme.svg';
+  public themeIcon = '/assets/images/icon-sun.svg';
+  public logoSrc = '/assets/images/logo-dark-theme.svg';
   private keydownHandler: ((event: KeyboardEvent) => void) | null = null;
 
   private themeService = inject(ThemeService);
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.updateIcons();
 
     // Add keyboard navigation support
@@ -39,14 +39,14 @@ export class Header implements OnInit, OnDestroy {
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     // Cleanup event listener
     if (this.keydownHandler) {
       document.removeEventListener('keydown', this.keydownHandler);
     }
   }
 
-  onThemeToggle(): void {
+  public onThemeToggle(): void {
     this.themeToggle.emit();
   }
 

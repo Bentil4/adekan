@@ -17,20 +17,19 @@ export class TextInput implements OnChanges, OnInit {
   @Output() textChange = new EventEmitter<string>();
   @Output() limitExceeded = new EventEmitter<void>();
 
-  currentText = '';
-  showWarning = false;
-  isLimitExceeded = false;
+  public currentText = '';
+  public showWarning = false;
+  public isLimitExceeded = false;
   private readonly STORAGE_KEY = 'textarea-content';
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const savedText = localStorage.getItem(this.STORAGE_KEY) || '';
     this.currentText = savedText;
     this.textChange.emit(savedText);
     this.checkLimit();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    // React to character limit changes
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes['characterLimit'] || changes['isLimitEnabled']) {
       this.checkLimit();
     }
@@ -41,7 +40,7 @@ export class TextInput implements OnChanges, OnInit {
     }
   }
 
-  onTextInput(event: Event): void {
+  public onTextInput(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
     let newText = textarea.value;
 

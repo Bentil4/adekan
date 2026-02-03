@@ -12,9 +12,9 @@ export class LimitPopup implements OnChanges {
   @Input() show = false;
   @Output() close = new EventEmitter<void>();
 
-  displayStyle = 'none';
+  public displayStyle = 'none';
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     // React to show property changes
     if (changes['show']) {
       this.displayStyle = this.show ? 'flex' : 'none';
@@ -31,11 +31,11 @@ export class LimitPopup implements OnChanges {
     }
   }
 
-  onClose(): void {
+  public onClose(): void {
     this.close.emit();
   }
 
-  onOverlayClick(event: MouseEvent): void {
+  public onOverlayClick(event: MouseEvent): void {
     // Close when clicking the overlay (background)
     if ((event.target as HTMLElement).classList.contains('limit-popup-overlay')) {
       this.onClose();
