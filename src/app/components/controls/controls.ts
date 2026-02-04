@@ -58,6 +58,13 @@ export class Controls implements OnChanges {
     if (!isNaN(value) && value > 0) {
       this.localCharacterLimit = value;
       this.limitChange.emit(value);
+    } 
+  }
+
+  public onKeyPress(event: KeyboardEvent): void {
+    const char = String.fromCharCode(event.which);
+    if (!/[0-9]/.test(char)) {
+      event.preventDefault();
     }
   }
 }

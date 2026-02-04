@@ -26,6 +26,7 @@
         [class.show-limit]="localIsLimitEnabled"
         [value]="localCharacterLimit"
         (input)="onLimitInput($event)"
+        (keypress)="onKeyPress($event)"
         [attr.aria-hidden]="!localIsLimitEnabled"
         min="1"
         aria-label="Character limit value"

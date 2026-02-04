@@ -3,6 +3,7 @@
     class="textarea"
     [(ngModel)]="currentText"
     (input)="onTextInput($event)"
+    (keydown)="onKeyPress($event)"
     placeholder="Start typing here… (or paste your text)"
     aria-label="Text input for analysis"
   ></textarea>

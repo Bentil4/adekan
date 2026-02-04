@@ -49,20 +49,22 @@ export class TextInput implements OnChanges, OnInit {
 
   public onTextInput(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
-    let newText = textarea.value;
-
-    // Check if limit is enabled and exceeded
-    if (this.isLimitEnabled && this.characterLimit > 0 && newText.length > this.characterLimit) {
-      // Truncate text to limit
-      newText = newText.substring(0, this.characterLimit);
-      textarea.value = newText;
-      this.limitExceeded.emit();
-    }
+    const newText = textarea.value;
 
     this.currentText = newText;
     localStorage.setItem(this.STORAGE_KEY, newText);
     this.textChange.emit(newText);
     this.checkLimit();
+  }
+
+  public onKeyPress(event: KeyboardEvent): void {
+    if (this.isLimitEnabled && this.characterLimit > 0 && this.currentText.length >= this.characterLimit) {
+      // Allow backspace, delete, and navigation keys
+      if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
+        event.preventDefault();
+        this.limitExceeded.emit();
+      }
+    }
   }
 
   private checkLimit(): void {
