@@ -58,9 +58,7 @@ input[type='checkbox']:checked::after {
 }
 
 .hide-limit {
-  visibility: hidden;
-  width: 60px;
-  height: 30px;
+  display: none;
 }
 
 input[type='text'] {
@@ -95,10 +93,10 @@ label {
   cursor: pointer;
 }
 
-
 @media (max-width: 767px) {
   .wrapper-checkbox {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .checkbox {
