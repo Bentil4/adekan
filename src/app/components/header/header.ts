@@ -17,33 +17,6 @@ export class Header implements OnInit, OnDestroy {
 
   private themeService = inject(ThemeService);
 
-  public ngOnInit(): void {
-    this.updateIcons();
-
-    
-    this.keydownHandler = (event: KeyboardEvent) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        const target = event.target as HTMLElement;
-        if (target.classList.contains('theme')) {
-          event.preventDefault();
-          this.onThemeToggle();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', this.keydownHandler);
-    
-    
-    const observer = new MutationObserver(() => this.updateIcons());
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-  }
-
-  public ngOnDestroy(): void {
-    if (this.keydownHandler) {
-      document.removeEventListener('keydown', this.keydownHandler);
-    }
-  }
-
   public onThemeToggle(): void {
     this.themeToggle.emit();
   }
@@ -57,6 +30,31 @@ export class Header implements OnInit, OnDestroy {
     } else {
       this.themeIcon = '/assets/images/icon-moon.svg';
       this.logoSrc = '/assets/images/logo-light-theme.svg';
+    }
+  }
+
+  public ngOnInit(): void {
+    this.updateIcons();
+
+    this.keydownHandler = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        const target = event.target as HTMLElement;
+        if (target.classList.contains('theme')) {
+          event.preventDefault();
+          this.onThemeToggle();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', this.keydownHandler);
+
+    const observer = new MutationObserver(() => this.updateIcons());
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  public ngOnDestroy(): void {
+    if (this.keydownHandler) {
+      document.removeEventListener('keydown', this.keydownHandler);
     }
   }
 }

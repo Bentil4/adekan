@@ -8,16 +8,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './stats-cards.css',
 })
 export class StatsCards implements OnChanges {
-  @Input() private characterCount = 0;
-  @Input() private wordCount = 0;
-  @Input() private sentenceCount = 0;
+  @Input() public characterCount = 0;
+  @Input() public wordCount = 0;
+  @Input() public sentenceCount = 0;
 
   public displayCharacterCount = '00';
   public displayWordCount = '00';
   public displaySentenceCount = '00';
 
   public ngOnChanges(changes: SimpleChanges): void {
-    // Update display values with proper padding when inputs change
     if (changes['characterCount']) {
       this.displayCharacterCount = this.formatCount(this.characterCount);
     }
