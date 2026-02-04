@@ -9,14 +9,13 @@ interface LetterDensityItem {
 
 @Component({
   selector: 'app-letter-density',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './letter-density.html',
   styleUrl: './letter-density.css',
 })
 export class LetterDensity implements OnChanges {
-  @Input() letterDensityData: LetterDensityItem[] = [];
-  @Input() hasText = false;
+  @Input() public letterDensityData: LetterDensityItem[] = [];
+  @Input() public hasText = false;
 
   public visibleData: LetterDensityItem[] = [];
   public showButton = false;

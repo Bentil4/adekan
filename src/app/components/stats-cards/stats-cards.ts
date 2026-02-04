@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-stats-cards',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './stats-cards.html',
   styleUrl: './stats-cards.css',
 })
 export class StatsCards implements OnChanges {
-  @Input() characterCount = 0;
-  @Input() wordCount = 0;
-  @Input() sentenceCount = 0;
+  @Input() private characterCount = 0;
+  @Input() private wordCount = 0;
+  @Input() private sentenceCount = 0;
 
   public displayCharacterCount = '00';
   public displayWordCount = '00';

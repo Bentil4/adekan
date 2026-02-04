@@ -3,23 +3,20 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-limit-popup',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './limit-popup.html',
   styleUrl: './limit-popup.css',
 })
 export class LimitPopup implements OnChanges {
-  @Input() show = false;
-  @Output() close = new EventEmitter<void>();
+  @Input() public show = false;
+  @Output() public close = new EventEmitter<void>();
 
   public displayStyle = 'none';
 
   public ngOnChanges(changes: SimpleChanges): void {
-    // React to show property changes
     if (changes['show']) {
       this.displayStyle = this.show ? 'flex' : 'none';
 
-      // Focus on the OK button when popup opens for accessibility
       if (this.show) {
         setTimeout(() => {
           const button = document.getElementById('close-popup-btn');

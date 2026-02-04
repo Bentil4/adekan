@@ -4,7 +4,6 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './header.html',
   styleUrls: ['./header.css'],
@@ -21,7 +20,7 @@ export class Header implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.updateIcons();
 
-    // Add keyboard navigation support
+    
     this.keydownHandler = (event: KeyboardEvent) => {
       if (event.key === 'Enter' || event.key === ' ') {
         const target = event.target as HTMLElement;
@@ -34,13 +33,12 @@ export class Header implements OnInit, OnDestroy {
 
     document.addEventListener('keydown', this.keydownHandler);
     
-    // Listen for theme changes
+    
     const observer = new MutationObserver(() => this.updateIcons());
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   }
 
   public ngOnDestroy(): void {
-    // Cleanup event listener
     if (this.keydownHandler) {
       document.removeEventListener('keydown', this.keydownHandler);
     }

@@ -12,7 +12,7 @@ export interface TextAnalysis {
   providedIn: 'root',
 })
 export class TextAnalysisService {
-  analyzeText(text: string, excludeSpaces: boolean = false): TextAnalysis {
+  public analyzeText(text: string, excludeSpaces: boolean = false): TextAnalysis {
     return {
       characterCount: this.countCharacters(text, excludeSpaces),
       wordCount: this.countWords(text),

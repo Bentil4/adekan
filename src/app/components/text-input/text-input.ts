@@ -1,21 +1,28 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-text-input',
-  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './text-input.html',
   styleUrl: './text-input.css',
 })
 export class TextInput implements OnChanges, OnInit {
-  @Input() text = '';
-  @Input() characterLimit = 300;
-  @Input() isLimitEnabled = false;
+  @Input() public text = '';
+  @Input() public characterLimit = 300;
+  @Input() public isLimitEnabled = false;
 
-  @Output() textChange = new EventEmitter<string>();
-  @Output() limitExceeded = new EventEmitter<void>();
+  @Output() public textChange = new EventEmitter<string>();
+  @Output() public limitExceeded = new EventEmitter<void>();
 
   public currentText = '';
   public showWarning = false;

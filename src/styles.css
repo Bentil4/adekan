@@ -86,21 +86,3 @@ textarea {
 button {
   font-family: inherit;
 }
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--neutral-mid);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #c48fe8;
-}

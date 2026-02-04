@@ -1,38 +1,41 @@
 <section class="word-wrapper">
   <h3>Letter Density</h3>
-  
-  <div *ngIf="!hasText" class="empty-message">
-    <p>No characters found. Start typing to see letter density.</p>
-  </div>
 
-  <article 
-    *ngFor="let item of visibleData" 
-    class="word-details letter-row"
-    role="region"
-    [attr.aria-label]="'Letter ' + item.letter + ' appears ' + item.count + ' times'">
-    <p class="letter">{{ item.letter }}</p>
-    <div 
-      class="progress-bar" 
-      [style.--fill-width.%]="item.percentage"
-      role="progressbar"
-      [attr.aria-valuenow]="item.percentage"
-      aria-valuemin="0"
-      aria-valuemax="100">
+  @if (!hasText) {
+    <div class="empty-message">
+      <p>No characters found. Start typing to see letter density.</p>
     </div>
-    <p class="percentage">{{ item.count }} ({{ item.percentage }}%)</p>
-  </article>
+  }
 
- 
-  @if(showButton){
- <button 
-     
-    class="btn"
-    (click)="toggleExpand()"
-    (keydown.enter)="toggleExpand()"
-    (keydown.space)="toggleExpand()"
-    [attr.aria-expanded]="isExpanded"
-    aria-label="Toggle letter density visibility">
-    {{ buttonText }}
-  </button>
+  @for (item of visibleData; track $index) {
+    <section
+      class="word-details letter-row"
+      role="region"
+      [attr.aria-label]="'Letter ' + item.letter + ' appears ' + item.count + ' times'"
+    >
+      <p class="letter">{{ item.letter }}</p>
+      <div
+        class="progress-bar"
+        [style.--fill-width.%]="item.percentage"
+        role="progressbar"
+        [attr.aria-valuenow]="item.percentage"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <p class="percentage">{{ item.count }} ({{ item.percentage }}%)</p>
+    </section>
+  }
+
+  @if (showButton) {
+    <button
+      class="btn"
+      (click)="toggleExpand()"
+      (keydown.enter)="toggleExpand()"
+      (keydown.space)="toggleExpand()"
+      [attr.aria-expanded]="isExpanded"
+      aria-label="Toggle letter density visibility"
+    >
+      {{ buttonText }}
+    </button>
   }
 </section>

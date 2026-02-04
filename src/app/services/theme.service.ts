@@ -8,7 +8,7 @@ export class ThemeService {
   private readonly DARK_THEME = 'dark-theme';
   private readonly LIGHT_THEME = 'light-theme';
 
-  initializeTheme(): void {
+  public initializeTheme(): void {
     const savedTheme = localStorage.getItem(this.THEME_KEY);
 
     if (savedTheme === 'light') {
@@ -20,7 +20,7 @@ export class ThemeService {
     }
   }
 
-  toggleTheme(): void {
+  public toggleTheme(): void {
     const isCurrentlyDark = document.body.classList.contains(this.DARK_THEME);
 
     if (isCurrentlyDark) {
@@ -34,7 +34,7 @@ export class ThemeService {
     }
   }
 
-  isDarkTheme(): boolean {
+  public isDarkTheme(): boolean {
     return document.body.classList.contains(this.DARK_THEME);
   }
 }
